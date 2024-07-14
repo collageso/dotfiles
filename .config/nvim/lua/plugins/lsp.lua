@@ -70,6 +70,7 @@ return {
       cssls = {},
       html = {},
       eslint = {},
+      gopls = {},
       lua_ls = {
         settings = {
           Lua = {

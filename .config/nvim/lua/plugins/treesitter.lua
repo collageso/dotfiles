@@ -25,6 +25,10 @@ return { -- Highlight, edit, and navigate code
       'json',
       'xml',
       'yaml',
+      'go',
+      'gomod',
+      'gowork',
+      'gosum',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
