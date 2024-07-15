@@ -26,6 +26,15 @@ return { -- Autocompletion
         -- },
       },
     },
+    {
+      'Saecki/crates.nvim',
+      event = { 'BufRead Cargo.toml' },
+      opts = {
+        completion = {
+          cmp = { enabled = true },
+        },
+      },
+    },
     'saadparwaiz1/cmp_luasnip',
 
     -- Adds other completion capabilities.
@@ -34,6 +43,10 @@ return { -- Autocompletion
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
   },
+  opts = function(_, opts)
+    opts.sources = opts.sources or {}
+    table.insert(opts.sources, { name = 'crates' })
+  end,
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'

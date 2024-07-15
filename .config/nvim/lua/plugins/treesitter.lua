@@ -15,6 +15,7 @@ return { -- Highlight, edit, and navigate code
       'css',
       'gitignore',
       'rust',
+      'ron',
       'svelte',
       'regex',
       'toml',
