@@ -8,6 +8,7 @@ vim.opt.fileencoding = 'utf-8'
 
 -- UI settings
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 
 -- Indentation settings
@@ -25,6 +26,7 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
+vim.opt.background = 'dark'
 vim.opt.signcolumn = 'yes'
 vim.opt.scrolloff = 10
 
