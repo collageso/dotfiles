@@ -3,18 +3,14 @@ return {
   priority = 1000,
   lazy = false,
   config = function()
-    vim.cmd 'colorscheme kanagawa-dragon'
-  end,
-  opts = {
-    transparent = true,
-    colors = {
-      theme = {
-        all = {
-          ui = {
-            bg_gutter = 'none',
-          },
-        },
+    require('kanagawa').setup({
+      theme = "dragon",
+      background = {
+        dark = "dragon",
+        light = "dragon"
       },
-    },
-  },
+      transparent = true,
+    })
+    vim.cmd("colorscheme kanagawa")
+  end,
 }
