@@ -11,4 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("collageso.plugins")
+require("lazy").setup({ { import = "collageso.plugins" }, { import = "collageso.plugins.lsp" } }, {
+  checker = {
+    enabled = true,
+  },
+  change_detection = {
+    notify = false,
+  },
+})
