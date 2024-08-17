@@ -34,6 +34,7 @@ return {
 				"svelte",
 				"lua_ls",
 				"rust_analyzer",
+				"gopls",
 			},
 		})
 
@@ -43,7 +44,8 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d",
 				"codelldb",
-				"gopls",
+				"goimports",
+				"gofumpt",
 			},
 		})
 	end,

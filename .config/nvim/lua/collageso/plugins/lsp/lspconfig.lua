@@ -118,6 +118,7 @@ return {
 			end,
 			["gopls"] = function()
 				lspconfig.gopls.setup({
+					capabilities = capabilities,
 					settings = {
 						gopls = {
 							gofumpt = true,
