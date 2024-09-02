@@ -28,6 +28,7 @@ return {
 			ensure_installed = {
 				"tsserver",
 				"astro",
+				"angularls",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -46,6 +47,7 @@ return {
 				"codelldb",
 				"goimports",
 				"gofumpt",
+				"sqlfluff",
 			},
 		})
 	end,

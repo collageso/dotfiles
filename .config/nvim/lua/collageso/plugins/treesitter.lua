@@ -46,6 +46,8 @@ return {
 				"svelte",
 				"graphql",
 				"lua",
+				"sql",
+				"cpp",
 			},
 			incremental_selection = {
 				enable = true,
