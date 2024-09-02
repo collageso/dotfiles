@@ -47,7 +47,6 @@ return {
 				"codelldb",
 				"goimports",
 				"gofumpt",
-				"sqlfluff",
 			},
 		})
 	end,
