@@ -21,13 +21,3 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current
-
--- code runner
-keymap.set(
-	"n",
-	"<leader>rcc",
-	":w<CR>:!g++ % -o program && ./program && rm program<CR>",
-	{ desc = "Run C/C++ program" }
-)
-keymap.set("n", "<leader>rcj", ":w<CR>:!node %<CR>", { desc = "Run JavaScript program" })
-keymap.set("n", "<leader>rct", ":w<CR>:!npx tsx %<CR>", { desc = "Run TypeScript program with tsx" })

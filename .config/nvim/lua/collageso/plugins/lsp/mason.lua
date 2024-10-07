@@ -31,6 +31,7 @@ return {
 				"angularls",
 				"html",
 				"cssls",
+        "jdtls",
 				"tailwindcss",
 				"svelte",
 				"lua_ls",
@@ -50,6 +51,8 @@ return {
 				"js-debug-adapter",
 				"goimports",
 				"gofumpt",
+				"java-debug-adapter",
+				"java-test",
 			},
 		})
 	end,

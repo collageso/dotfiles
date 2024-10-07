@@ -27,6 +27,7 @@ return {
 				"rust",
 				"c",
 				"cpp",
+				"java",
 				"http",
 				"javascript",
 				"typescript",
