@@ -27,6 +27,7 @@ return {
 				"rust",
 				"c",
 				"cpp",
+				"cmake",
 				"java",
 				"http",
 				"javascript",

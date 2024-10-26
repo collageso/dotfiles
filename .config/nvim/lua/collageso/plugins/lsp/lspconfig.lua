@@ -84,6 +84,42 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["clangd"] = function()
+				lspconfig["clangd"].setup({
+					keys = {
+						{ "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+					},
+					root_dir = function(fname)
+						return require("lspconfig.util").root_pattern(
+							"Makefile",
+							"configure.ac",
+							"configure.in",
+							"config.h.in",
+							"meson.build",
+							"meson_options.txt",
+							"build.ninja"
+						)(fname) or require("lspconfig.util").root_pattern(
+							"compile_commands.json",
+							"compile_flags.txt"
+						)(fname) or require("lspconfig.util").find_git_ancestor(fname)
+					end,
+					capabilities = capabilities,
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--header-insertion=iwyu",
+						"--completion-style=detailed",
+						"--function-arg-placeholders",
+						"--fallback-style=llvm",
+					},
+					init_options = {
+						usePlaceholders = false,
+						completeUnimported = true,
+						clangdFileStatus = true,
+					},
+				})
+			end,
 			["jdtls"] = function()
 				lspconfig["jdtls"].setup({
 					jdtls = function()
@@ -194,11 +230,6 @@ return {
 							semanticTokens = true,
 						},
 					},
-				})
-			end,
-			["clangd"] = function()
-				lspconfig.clangd.setup({
-					capabilities = capabilities,
 				})
 			end,
 		})
