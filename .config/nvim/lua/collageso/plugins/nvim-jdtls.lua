@@ -1,7 +1,7 @@
 return {
 	"mfussenegger/nvim-jdtls",
 	dependencies = { "folke/which-key.nvim" },
-	ft = "java", -- Java 파일 타입 설정
+	ft = "java",
 	opts = function()
 		local mason_registry = require("mason-registry")
 		local lombok_jar = mason_registry.get_package("jdtls"):get_install_path() .. "/lombok.jar"

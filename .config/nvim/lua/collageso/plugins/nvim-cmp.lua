@@ -11,10 +11,23 @@ return {
 			-- install jsregexp (optional!).
 			build = "make install_jsregexp",
 		},
+		{
+			"Saecki/crates.nvim",
+			event = { "BufRead Cargo.toml" },
+			opts = {
+				completion = {
+					cmp = { enabled = true },
+				},
+			},
+		},
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
+	opts = function(_, opts)
+		opts.sources = opts.sources or {}
+		table.insert(opts.sources, { name = "crates" })
+	end,
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")

@@ -6,6 +6,25 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
 	},
+	-- opts = {
+	-- 	servers = {
+	-- 		taplo = {
+	-- 			keys = {
+	-- 				{
+	-- 					"K",
+	-- 					function()
+	-- 						if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+	-- 							require("crates").show_popup()
+	-- 						else
+	-- 							vim.lsp.buf.hover()
+	-- 						end
+	-- 					end,
+	-- 					desc = "Show Crate Documentation",
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	config = function()
 		-- import lspconfig plugin
 		local lspconfig = require("lspconfig")
@@ -51,7 +70,7 @@ return {
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
 				opts.desc = "Show line diagnostics"
-				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+				keymap.set("n", "<leader>dl", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
 				opts.desc = "Go to previous diagnostic"
 				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -84,6 +103,7 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["rust_analyzer"] = function() end,
 			["clangd"] = function()
 				lspconfig["clangd"].setup({
 					keys = {
