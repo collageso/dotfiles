@@ -4,9 +4,9 @@ This repository contains the dotfiles for my development workflow
 
 ## Environment
 
-- ubuntu
-- wezterm
+- arch linux
+- kitty
 - zsh
-- i3
+- hyprland (wayland)
 - tmux
 - neovim
