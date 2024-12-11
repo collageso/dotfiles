@@ -14,7 +14,12 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>ee", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-		vim.keymap.set("n", "<leader>ef", "<CMD>Oil .<CR>", { desc = "Open cwd directory" })
+		vim.keymap.set("n", "<leader>ee", function()
+			vim.cmd((vim.bo.filetype == "oil") and "bd" or "Oil")
+		end, { desc = "Open parent directory" })
+
+		vim.keymap.set("n", "<leader>ef", function()
+			vim.cmd((vim.bo.filetype == "oil") and "bd" or "Oil .")
+		end, { desc = "Open parent directory" })
 	end,
 }
