@@ -31,7 +31,7 @@ return {
 				"angularls",
 				"html",
 				"cssls",
-        "jdtls",
+				"jdtls",
 				"tailwindcss",
 				"svelte",
 				"lua_ls",

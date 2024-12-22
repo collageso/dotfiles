@@ -14,6 +14,16 @@ return {
 			require("dapui").setup()
 			require("nvim-dap-virtual-text").setup({})
 
+			dap.configurations.java = {
+				{
+					type = "java",
+					request = "attach",
+					name = "Debug (Attach) - Remote",
+					hostName = "127.0.0.1",
+					port = 5005,
+				},
+			}
+
 			if not dap.adapters["pwa-node"] then
 				require("dap").adapters["pwa-node"] = {
 					type = "server",
