@@ -125,6 +125,10 @@ return {
 			end)
 
 			vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug continue" })
+			vim.keymap.set("n", "<leader>dt", function()
+				dap.terminate()
+				ui.close()
+			end, { desc = "Debug Terminate" })
 			vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug step into" })
 			vim.keymap.set("n", "<F2>", dap.step_over, { desc = "Debug step over" })
 			vim.keymap.set("n", "<F3>", dap.step_out, { desc = "Debug step out" })
@@ -132,16 +136,16 @@ return {
 			vim.keymap.set("n", "<F12>", dap.restart, { desc = "Debug restart" })
 
 			dap.listeners.before.attach.dapui_config = function()
-				ui.open()
+				ui.open({})
 			end
 			dap.listeners.before.launch.dapui_config = function()
-				ui.open()
+				ui.open({})
 			end
 			dap.listeners.before.event_terminated.dapui_config = function()
-				ui.close()
+				ui.close({})
 			end
 			dap.listeners.before.event_exited.dapui_config = function()
-				ui.close()
+				ui.close({})
 			end
 		end,
 	},
