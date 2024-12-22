@@ -14,15 +14,15 @@ return {
 			require("dapui").setup()
 			require("nvim-dap-virtual-text").setup({})
 
-			dap.configurations.java = {
-				{
-					type = "java",
-					request = "attach",
-					name = "Debug (Attach) - Remote",
-					hostName = "127.0.0.1",
-					port = 5005,
-				},
-			}
+			-- dap.configurations.java = {
+			-- 	{
+			-- 		type = "java",
+			-- 		request = "attach",
+			-- 		name = "Debug (Attach) - Remote",
+			-- 		hostName = "127.0.0.1",
+			-- 		port = 5005,
+			-- 	},
+			-- }
 
 			if not dap.adapters["pwa-node"] then
 				require("dap").adapters["pwa-node"] = {
@@ -116,19 +116,19 @@ return {
 				}
 			end
 
-			vim.keymap.set("n", "<space>b", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
-			vim.keymap.set("n", "<space>gb", dap.run_to_cursor, { desc = "Run debug to the current cursor" })
+			vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+			-- vim.keymap.set("n", "<leader>dr", dap.run_to_cursor, { desc = "Run debug to the current cursor" })
 
 			-- Eval var under cursor
-			vim.keymap.set("n", "<space>?", function()
+			vim.keymap.set("n", "<leader>?", function()
 				require("dapui").eval(nil, { enter = true })
 			end)
 
-			vim.keymap.set("n", "<F1>", dap.continue, { desc = "Debug continue" })
-			vim.keymap.set("n", "<F2>", dap.step_into, { desc = "Debug step into" })
-			vim.keymap.set("n", "<F3>", dap.step_over, { desc = "Debug step over" })
-			vim.keymap.set("n", "<F4>", dap.step_out, { desc = "Debug step out" })
-			vim.keymap.set("n", "<F5>", dap.step_back, { desc = "Debug step back" })
+			vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug continue" })
+			vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug step into" })
+			vim.keymap.set("n", "<F2>", dap.step_over, { desc = "Debug step over" })
+			vim.keymap.set("n", "<F3>", dap.step_out, { desc = "Debug step out" })
+			vim.keymap.set("n", "<F4>", dap.step_back, { desc = "Debug step back" })
 			vim.keymap.set("n", "<F12>", dap.restart, { desc = "Debug restart" })
 
 			dap.listeners.before.attach.dapui_config = function()
