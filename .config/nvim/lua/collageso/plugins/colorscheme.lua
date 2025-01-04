@@ -34,7 +34,11 @@ return {
 			--- function will be called with a Highlights and ColorScheme table
 			---@param highlights Highlights
 			---@param colors ColorScheme
-			on_highlights = function(highlights, colors) end,
+			on_highlights = function(highlights, colors)
+				highlights.DiagnosticUnnecessary = {
+					fg = "#5B4A47",
+				}
+			end,
 		})
 		vim.cmd("colorscheme farout")
 	end,
