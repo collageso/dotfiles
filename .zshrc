@@ -82,6 +82,8 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 
+PROMPT_EOL_MARK=''
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -95,4 +97,3 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
