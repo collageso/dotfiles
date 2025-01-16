@@ -84,6 +84,9 @@ return {
 					capabilities = capabilities,
 				})
 			end,
+			["hls"] = function()
+				return true
+			end,
 			["rust_analyzer"] = function() end,
 			["clangd"] = function()
 				lspconfig["clangd"].setup({

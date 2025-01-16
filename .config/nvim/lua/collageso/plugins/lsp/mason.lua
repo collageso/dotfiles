@@ -38,6 +38,7 @@ return {
 				"rust_analyzer",
 				"gopls",
 				"clangd",
+				"hls",
 			},
 			automatic_installation = true,
 		})
@@ -53,6 +54,7 @@ return {
 				"gofumpt",
 				"java-debug-adapter",
 				"java-test",
+				"haskell-debug-adapter",
 			},
 		})
 	end,

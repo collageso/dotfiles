@@ -11,6 +11,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=~/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
+[ -f "/home/collageso/.ghcup/env" ] && . "/home/collageso/.ghcup/env" # ghcup-env
 export PATH=$JAVA_HOME/bin:$PATH
 export EDITOR="nvim"
 
@@ -97,3 +98,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+

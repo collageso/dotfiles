@@ -43,6 +43,7 @@ return {
 				"graphql",
 				"lua",
 				"sql",
+				"haskell",
 			},
 			incremental_selection = {
 				enable = true,
