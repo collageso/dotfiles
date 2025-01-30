@@ -1,15 +1,13 @@
 return {
-	"mrcjkb/haskell-tools.nvim",
-	version = "^4",
-	lazy = false,
+	"luc-tielen/telescope_hoogle",
 	ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
 	dependencies = {
-		{ "nvim-telescope/telescope.nvim", optional = true },
+		{ "nvim-telescope/telescope.nvim" },
 	},
 	config = function()
 		local ok, telescope = pcall(require, "telescope")
 		if ok then
-			telescope.load_extension("ht")
+			telescope.load_extension("hoogle")
 		end
 	end,
 }
