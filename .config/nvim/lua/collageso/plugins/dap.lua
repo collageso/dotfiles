@@ -84,7 +84,7 @@ return {
 			if not dap.adapters["codelldb"] then
 				require("dap").adapters["codelldb"] = {
 					type = "server",
-					host = "localhost",
+					host = "127.0.0.1",
 					port = "${port}",
 					executable = {
 						command = "codelldb",
@@ -129,11 +129,11 @@ return {
 				dap.terminate()
 				ui.close()
 			end, { desc = "Debug Terminate" })
-			vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug step into" })
-			vim.keymap.set("n", "<F2>", dap.step_over, { desc = "Debug step over" })
-			vim.keymap.set("n", "<F3>", dap.step_out, { desc = "Debug step out" })
-			vim.keymap.set("n", "<F4>", dap.step_back, { desc = "Debug step back" })
-			vim.keymap.set("n", "<F12>", dap.restart, { desc = "Debug restart" })
+			vim.keymap.set("n", "<leader>d<F1>", dap.step_into, { desc = "Debug step into" })
+			vim.keymap.set("n", "<leader>d<F2>", dap.step_over, { desc = "Debug step over" })
+			vim.keymap.set("n", "<leader>d<F3>", dap.step_out, { desc = "Debug step out" })
+			vim.keymap.set("n", "<leader>d<F4>", dap.step_back, { desc = "Debug step back" })
+			vim.keymap.set("n", "<leader>d<F12>", dap.restart, { desc = "Debug restart" })
 
 			dap.listeners.before.attach.dapui_config = function()
 				ui.open({})
