@@ -104,6 +104,10 @@ return {
 						program = function()
 							return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 						end,
+						args = function()
+							local args_string = vim.fn.input("Arguments: ")
+							return vim.split(args_string, " ")
+						end,
 						cwd = "${workspaceFolder}",
 					},
 					{
@@ -124,16 +128,16 @@ return {
 				require("dapui").eval(nil, { enter = true })
 			end)
 
-			vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug continue" })
+			vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Debug Run/Continue" })
 			vim.keymap.set("n", "<leader>dt", function()
 				dap.terminate()
 				ui.close()
 			end, { desc = "Debug Terminate" })
-			vim.keymap.set("n", "<leader>d<F1>", dap.step_into, { desc = "Debug step into" })
-			vim.keymap.set("n", "<leader>d<F2>", dap.step_over, { desc = "Debug step over" })
-			vim.keymap.set("n", "<leader>d<F3>", dap.step_out, { desc = "Debug step out" })
-			vim.keymap.set("n", "<leader>d<F4>", dap.step_back, { desc = "Debug step back" })
-			vim.keymap.set("n", "<leader>d<F12>", dap.restart, { desc = "Debug restart" })
+			vim.keymap.set("n", "<leader>d1", dap.step_into, { desc = "Debug step into" })
+			vim.keymap.set("n", "<leader>d2", dap.step_over, { desc = "Debug step over" })
+			vim.keymap.set("n", "<leader>d3", dap.step_out, { desc = "Debug step out" })
+			vim.keymap.set("n", "<leader>d4", dap.step_back, { desc = "Debug step back" })
+			vim.keymap.set("n", "<leader>d5", dap.restart, { desc = "Debug restart" })
 
 			dap.listeners.before.attach.dapui_config = function()
 				ui.open({})
