@@ -11,6 +11,16 @@ opt.shiftwidth = 4 -- 4 spaces for indet width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "javascript", "typescript", "svelte" },
+	callback = function()
+		vim.opt_local.tabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.expandtab = true
+		vim.opt_local.autoindent = true
+	end,
+})
+
 opt.wrap = false
 
 -- search settings
