@@ -27,6 +27,8 @@ return {
 				path_display = { "smart" },
 				file_ignore_patterns = {
 					"node_modules",
+					"%.class",
+					"build/",
 				},
 				mappings = {
 					i = {

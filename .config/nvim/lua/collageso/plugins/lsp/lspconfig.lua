@@ -125,11 +125,7 @@ return {
 				})
 			end,
 			["jdtls"] = function()
-				lspconfig["jdtls"].setup({
-					jdtls = function()
-						return true -- avoid duplicate servers
-					end,
-				})
+				lspconfig["jdtls"].setup({})
 			end,
 			["angularls"] = function()
 				local ok, mason_registry = pcall(require, "mason-registry")
