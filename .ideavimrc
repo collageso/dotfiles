@@ -1,0 +1,36 @@
+let mapleader = " "
+let g:netrw_liststyle = 3
+
+set lookupkeys=<Tab>,<Down>,<Up>,<Enter>,<Left>,<Right>,<C-Down>,<C-Up>,<PageUp>,<PageDown>,<C-Q>
+
+imap jk <Esc>
+iunmap <C-j>
+imap <C-j> :action EditorDown<CR>
+imap <C-k> :action EditorUp<CR>
+nmap <Leader>ca :action ShowIntentionActions<CR>
+nmap <Leader>cg :action Generate<CR>
+
+set relativenumber
+set number
+
+set tabstop=4         
+set shiftwidth=4      
+set expandtab        
+set autoindent        
+
+set nowrap
+set ignorecase   
+set smartcase     
+
+set termguicolors
+set signcolumn=yes
+
+set backspace=indent,eol,start 
+set clipboard+=unnamedplus 
+
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
+
+set multiple-cursors
+set surround
+set commentary
