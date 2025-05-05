@@ -125,7 +125,28 @@ return {
 				})
 			end,
 			["jdtls"] = function()
-				lspconfig["jdtls"].setup({})
+				local current_script_path = debug.getinfo(1).source:gsub("^@", "")
+				local config_directory = vim.fn.fnamemodify(current_script_path, ":h")
+				local formatter_file_path = config_directory .. "/java-google-style.xml"
+
+				local mason_registry = require("mason-registry")
+				local lombok_jar = mason_registry.get_package("jdtls"):get_install_path() .. "/lombok.jar"
+
+				lspconfig["jdtls"].setup({
+					cmd = {
+						vim.fn.exepath("jdtls"),
+						string.format("--jvm-arg=-javaagent:%s", lombok_jar),
+					},
+					settings = {
+						java = {
+							format = {
+								settings = {
+									url = formatter_file_path,
+								},
+							},
+						},
+					},
+				})
 			end,
 			["angularls"] = function()
 				local ok, mason_registry = pcall(require, "mason-registry")
