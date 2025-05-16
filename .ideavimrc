@@ -35,11 +35,11 @@ set backspace=indent,eol,start
 set clipboard+=unnamedplus
 
 
-nnoremap <Leader><F4> :action RestartIde<CR>
-nnoremap <Leader><F5> :action Run<CR>
-nnoremap <Leader><F6> :action Rerun<CR>
-nnoremap <Leader><F7> :action Debug<CR>
-nnoremap <Leader><F8> :action Stop<CR>
+nnoremap <Leader>`1 :action RestartIde<CR>
+nnoremap <Leader><F9> :action Run<CR>
+nnoremap <Leader><F10> :action Rerun<CR>
+nnoremap <Leader><F11> :action Debug<CR>
+nnoremap <Leader><F12> :action Stop<CR>
 
 nmap s <Action>(flash.search)
 xmap s <Action>(flash.search)
