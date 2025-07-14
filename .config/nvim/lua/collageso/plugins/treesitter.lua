@@ -15,13 +15,8 @@ return {
 			indent = { enable = true },
 			-- ensure these language parsers are installed
 			ensure_installed = {
-				"astro",
 				"bash",
 				"css",
-				"scss",
-				"sql",
-				"dockerfile",
-				"gitignore",
 				"json",
 				"go",
 				"rust",
@@ -29,7 +24,6 @@ return {
 				"cpp",
 				"cmake",
 				"java",
-				"http",
 				"javascript",
 				"typescript",
 				"tsx",
@@ -42,7 +36,6 @@ return {
 				"svelte",
 				"graphql",
 				"lua",
-				"sql",
 				"haskell",
 			},
 			incremental_selection = {

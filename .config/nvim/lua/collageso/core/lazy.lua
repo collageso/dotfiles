@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ { import = "collageso.plugins" }, { import = "collageso.plugins.lsp" } }, {
 	checker = {
-		enabled = true,
+		enabled = false,
 	},
 	change_detection = {
 		notify = false,

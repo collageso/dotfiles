@@ -16,10 +16,10 @@ return {
 
 		vim.keymap.set("n", "<leader>ee", function()
 			vim.cmd((vim.bo.filetype == "oil") and "bd" or "Oil")
-		end, { desc = "Open parent directory" })
+		end, { desc = "Open current directory" })
 
 		vim.keymap.set("n", "<leader>ef", function()
 			vim.cmd((vim.bo.filetype == "oil") and "bd" or "Oil .")
-		end, { desc = "Open parent directory" })
+		end, { desc = "Open root directory" })
 	end,
 }
