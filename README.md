@@ -1,6 +1,6 @@
 # My dotfiles
 
-This repository contains the dotfiles for my dev workflow
+This repository contains the dotfiles for my development workflow
 
 ## Environment
 
