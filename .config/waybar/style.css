@@ -1,203 +1,77 @@
 * {
-  border: none;
-  border-radius: 4px;
-  font-family: "IosevkaTerm NF", Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  min-height: 0;
+    border: none;
+    border-radius: 0;
+    font-family: "IosevkaTerm NF", "Terminus", "monospace";
+    font-size: 12px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 window#waybar {
-  background-color: #1f1311;
-  color: #f2ddbc;
+    background-color: #000000;
+    color: #ffffff;
+    border-top: 1px solid #444444;
 }
 
 #workspaces button {
-  padding: 4px 4px;
-  margin: 2px 2px;
-  border-radius: 4px;
-  color: #e0ccae;
-  box-shadow: inset 0 -3px transparent;
+    padding: 0 4px;
+    background-color: #333333;
+    background-image: none;
+    color: #ffffff;
+    border-radius: 0;
+    transition: none;
+    box-shadow: inset 0 0 0 transparent;
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 -3px #f2ddbc;
+    background-color: #444444;
+    background-image: none;
+    transition: none;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #workspaces button.active {
-  color: #291916;
-  background-color: #a4895c;
+    background-color: #285577;
+    background-image: none;
 }
 
-#workspaces button.focused {
-  background-color: #a4896f;
+#workspaces button.active:hover {
+    background-color: #285577;
+    background-image: none;
+    transition: none;
+    box-shadow: none;
 }
 
-#workspaces button.urgent {
-  background-color: #bf472c;
-}
-
-#mode {
-  background-color: #66292f;
+#workspaces button.focused,
+#workspaces button.urgent,
+#workspaces button.visible {
+    background-image: none;
+    transition: none;
 }
 
 #clock,
 #battery,
 #cpu,
 #memory,
-#temperature,
-#backlight,
 #network,
 #pulseaudio,
-#custom-media,
-#tray,
 #mode,
-#idle_inhibitor,
-#mpd {
-  padding: 0 10px;
-  margin: 6px 3px;
-  color: #0f0908;
+#window {
+    padding: 0 5px;
+    color: #ffffff;
 }
 
-#window,
-#workspaces {
-  margin: 0 4px;
+#custom-sep {
+    color: #666666;
+    padding: 0 2px;
 }
 
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
+#battery.critical {
+    color: #ff0000;
 }
 
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-#clock {
-  background-color: #291916;
-  color: #f2ddbc;
-}
-
-#battery {
-  background-color: #a67458;
-  color: #1f1311;
-}
-
-#battery.charging {
-  color: #f2ddbc;
-  background-color: #6b4035;
-}
-
-@keyframes blink {
-  to {
-    background-color: #d47d49;
-    color: #0f0908;
-  }
-}
-
-#battery.critical:not(.charging) {
-  background-color: #bf472c;
-  color: #f2ddbc;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-label:focus {
-  background-color: #66292f;
-}
-
-#cpu {
-  background-color: #a4895c;
-  color: #0f0908;
-}
-
-#memory {
-  background-color: #d47d49;
-  color: #0f0908;
-}
-
-#backlight {
-  background-color: #f2a766;
-  color: #0f0908;
-}
-
-#network {
-  background-color: #6b4035;
-  color: #f2ddbc;
-}
-
-#network.disconnected {
-  background-color: #8a4b53;
-}
-
-#pulseaudio {
-  background-color: #8a4b53;
-  color: #f2ddbc;
-}
-
-#pulseaudio.muted {
-  background-color: #66292f;
-  color: #e0ccae;
-}
-
-#custom-media {
-  background-color: #d47d49;
-  color: #291916;
-  min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-  background-color: #a67458;
-}
-
-#custom-media.custom-vlc {
-  background-color: #f2a766;
-}
-
-#temperature {
-  background-color: #d47d49;
-}
-
-#temperature.critical {
-  background-color: #bf472c;
-}
-
-#tray {
-  background-color: #a4896f;
-}
-
-#idle_inhibitor {
-  background-color: #6b4035;
-}
-
-#idle_inhibitor.activated {
-  background-color: #e0ccae;
-  color: #291916;
-}
-
-#mpd {
-  background-color: #a67458;
-  color: #291916;
-}
-
-#mpd.disconnected {
-  background-color: #8a4b53;
-}
-
-#mpd.stopped {
-  background-color: #a4895c;
-}
-
-#mpd.paused {
-  background-color: #6b4035;
-}
-
-#language {
-  background: #e0ccae;
-  color: #291916;
-  padding: 0 5px;
-  margin: 6px 3px;
-  min-width: 16px;
+#window {
+    font-weight: normal;
 }
