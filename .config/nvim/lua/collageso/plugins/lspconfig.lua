@@ -71,7 +71,7 @@ return {
 
                 -- Enable Inlay Hints if supported by the server
                 if client.server_capabilities.inlayHintProvider then
-                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                    vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
                 end
 
                 -- Generic Auto-format on save for all supported languages
