@@ -138,13 +138,5 @@ return {
                 },
             }
         })
-
-        ------------------------------------------------------------
-        -- Enable Configured LSP Servers
-        ------------------------------------------------------------
-        vim.lsp.enable("lua_ls")
-        vim.lsp.enable("clangd")
-        vim.lsp.enable("hls")
-        vim.lsp.enable("rust_analyzer")
     end,
 }
