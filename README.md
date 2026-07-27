@@ -5,7 +5,7 @@ This repository contains the dotfiles for my dev workflow
 ## Environment
 
 - arch linux
-- foot
+- ghostty
 - zsh
 - hyprland (wayland)
 - tmux
