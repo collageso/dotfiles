@@ -1,0 +1,106 @@
+# ==================================================
+# Font
+# ==================================================
+
+font-family = IosevkaTerm NFM
+font-size = 12.5
+
+# ==================================================
+# Window
+# ==================================================
+
+window-decoration = none
+
+window-padding-x = 24
+window-padding-y = 20
+window-padding-balance = true
+window-padding-color = background
+
+background-opacity = 1
+
+# ==================================================
+# Cursor
+# ==================================================
+
+cursor-style = block
+cursor-style-blink = false
+
+cursor-color = #d08b5b
+cursor-text = #181513
+
+shell-integration-features = no-cursor
+
+# ==================================================
+# Colors
+# ==================================================
+
+foreground = #d4c5b4
+background = #181513
+
+selection-foreground = #d4c5b4
+selection-background = #372b23
+
+# ANSI colors
+palette = 0=#12100f
+palette = 1=#c46c62
+palette = 2=#84966b
+palette = 3=#c8a96b
+palette = 4=#728ca3
+palette = 5=#9a7e9c
+palette = 6=#779b91
+palette = 7=#d4c5b4
+
+palette = 8=#8f8176
+palette = 9=#d77a70
+palette = 10=#96aa79
+palette = 11=#ddbd7a
+palette = 12=#839eb8
+palette = 13=#ad8fb0
+palette = 14=#89afa4
+palette = 15=#eadbca
+
+palette = 16=#d08b5b
+palette = 17=#493d36
+palette = 18=#201c19
+palette = 19=#372b23
+palette = 20=#8f8176
+palette = 21=#5b4a47
+palette = 22=#211d1a
+palette = 23=#20271d
+palette = 24=#29251c
+palette = 25=#2a1d1b
+
+# ==================================================
+# Mouse
+# ==================================================
+
+copy-on-select = true
+
+mouse-hide-while-typing = false
+mouse-scroll-multiplier = 3
+
+# ==================================================
+# Scrollback
+# ==================================================
+
+scrollback-limit = 10485760
+
+# ==================================================
+# Keybindings
+# ==================================================
+
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+keybind = ctrl+shift+n=new_window
+
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+0=reset_font_size
+
+# ==================================================
+# Behavior
+# ==================================================
+
+confirm-close-surface = false

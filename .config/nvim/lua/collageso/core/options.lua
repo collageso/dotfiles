@@ -1,17 +1,85 @@
 local opt = vim.opt
 
-opt.relativenumber = true
+------------------------------------------------------------
+-- Interface
+------------------------------------------------------------
+
 opt.number = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
-opt.autoindent = true
-opt.wrap = false
-opt.ignorecase = true
-opt.smartcase = true
+opt.relativenumber = true
+
 opt.termguicolors = true
 opt.background = "dark"
-opt.startofline = false
+
 opt.signcolumn = "yes"
-opt.backspace = "indent,eol,start"
-opt.clipboard:append("unnamedplus")
+opt.cursorline = true
+
+opt.wrap = false
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+
+------------------------------------------------------------
+-- Indentation defaults
+------------------------------------------------------------
+
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = -1
+opt.expandtab = true
+opt.smartindent = true
+
+------------------------------------------------------------
+-- Search
+------------------------------------------------------------
+
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+opt.hlsearch = true
+
+------------------------------------------------------------
+-- Windows
+------------------------------------------------------------
+
+opt.splitright = true
+opt.splitbelow = true
+
+------------------------------------------------------------
+-- Editing
+------------------------------------------------------------
+
+opt.backspace = {
+    "indent",
+    "eol",
+    "start",
+}
+
+opt.confirm = true
+opt.undofile = true
+opt.swapfile = false
+
+------------------------------------------------------------
+-- Timing
+------------------------------------------------------------
+
+opt.updatetime = 250
+opt.timeoutlen = 400
+
+------------------------------------------------------------
+-- Clipboard
+------------------------------------------------------------
+
+opt.clipboard = "unnamedplus"
+
+------------------------------------------------------------
+-- Whitespace
+------------------------------------------------------------
+
+opt.list = true
+
+opt.listchars = {
+    tab = "» ",
+    trail = "·",
+    nbsp = "␣",
+}
+
+opt.showmode = false

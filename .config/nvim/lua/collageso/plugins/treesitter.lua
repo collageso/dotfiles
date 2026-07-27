@@ -1,52 +1,46 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = { "BufReadPre", "BufNewFile" },
-    build = ":TSUpdate",
-    config = function()
-        -- import nvim-treesitter plugin
-        local treesitter = require("nvim-treesitter.configs")
+    branch = "main",
+    lazy = false,
 
-        -- configure treesitter
-        treesitter.setup({ -- enable syntax highlighting
-            highlight = {
-                enable = true,
-            },
-            -- enable indentation
-            indent = { enable = true },
-            -- ensure these language parsers are installed
-            ensure_installed = {
-                "bash",
-                "css",
-                "json",
-                "go",
-                "rust",
-                "c",
-                "cpp",
-                "cmake",
-                "java",
-                "javascript",
-                "typescript",
-                "tsx",
-                "yaml",
-                "xml",
-                "html",
-                "markdown",
-                "markdown_inline",
-                "regex",
-                "svelte",
-                "graphql",
-                "lua",
-                "haskell",
-            },
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = "<C-space>",
-                    node_incremental = "<C-space>",
-                    scope_incremental = false,
-                    node_decremental = "<bs>",
-                },
-            },
+    build = ":TSUpdate",
+
+    config = function()
+        local treesitter = require("nvim-treesitter")
+
+        treesitter.setup()
+
+        local parsers = {
+            "bash",
+            "c",
+            "cpp",
+            "css",
+            "c_sharp",
+            "haskell",
+            "html",
+            "java",
+            "javascript",
+            "json",
+            "lua",
+            "markdown",
+            "markdown_inline",
+            "rust",
+            "svelte",
+            "toml",
+            "tsx",
+            "typescript",
+            "vim",
+            "vimdoc",
+            "yaml",
+            "zig",
+        }
+
+        treesitter.install(parsers)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function()
+                pcall(vim.treesitter.start)
+            end,
         })
     end,
 }
