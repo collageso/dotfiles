@@ -28,6 +28,14 @@ return {
         notify_on_error = true,
         notify_no_formatters = true,
 
+        formatters = {
+            clang_format = {
+                append_args = {
+                    "--style={BasedOnStyle: LLVM, AllowShortFunctionsOnASingleLine: Never}",
+                },
+            },
+        },
+
         format_on_save = function(bufnr)
             if vim.bo[bufnr].buftype ~= "" then
                 return

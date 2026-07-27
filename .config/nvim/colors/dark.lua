@@ -4,29 +4,35 @@ if vim.fn.exists("syntax_on") == 1 then
     vim.cmd.syntax("reset")
 end
 
-vim.g.colors_name = "dark"
+vim.g.colors_name = "blue-dusk"
 
 local palette = {
     none = "NONE",
 
-    bg = "#181513",
-    bg_dark = "#12100f",
-    bg_float = "#201c19",
-    bg_visual = "#372b23",
+    -- Backgrounds
+    bg = "#0f1318",
+    bg_dark = "#0b0e12",
+    bg_float = "#161c23",
+    bg_visual = "#242d37",
+    bg_cursor = "#12171d",
 
-    fg = "#d4c5b4",
-    fg_dim = "#8f8176",
-    fg_dark = "#5b4a47",
+    -- Foregrounds
+    fg = "#bac5cf",
+    fg_soft = "#9ca9b4",
+    fg_dim = "#697783",
+    fg_dark = "#404c57",
 
-    red = "#c46c62",
-    orange = "#d08b5b",
-    yellow = "#c8a96b",
-    green = "#84966b",
-    cyan = "#779b91",
-    blue = "#728ca3",
-    purple = "#9a7e9c",
+    -- Syntax accents
+    red = "#a9737c",
+    orange = "#a88f7c",
+    yellow = "#a99f7d",
+    green = "#819b91",
+    cyan = "#80a8ad",
+    blue = "#7898b0",
+    purple = "#918daa",
 
-    border = "#493d36",
+    -- UI
+    border = "#2d3944",
 }
 
 local function set(group, value)
@@ -43,7 +49,7 @@ set("Normal", {
 })
 
 set("NormalNC", {
-    fg = palette.fg,
+    fg = palette.fg_soft,
     bg = palette.none,
 })
 
@@ -58,11 +64,11 @@ set("FloatBorder", {
 })
 
 set("CursorLine", {
-    bg = "#211d1a",
+    bg = palette.bg_cursor,
 })
 
 set("CursorLineNr", {
-    fg = palette.orange,
+    fg = palette.blue,
     bold = true,
 })
 
@@ -79,13 +85,13 @@ set("Visual", {
 })
 
 set("Search", {
-    fg = palette.bg,
+    fg = palette.bg_dark,
     bg = palette.yellow,
 })
 
 set("IncSearch", {
-    fg = palette.bg,
-    bg = palette.orange,
+    fg = palette.bg_dark,
+    bg = palette.blue,
 })
 
 set("Pmenu", {
@@ -94,8 +100,8 @@ set("Pmenu", {
 })
 
 set("PmenuSel", {
-    fg = palette.bg,
-    bg = palette.orange,
+    fg = palette.bg_dark,
+    bg = palette.blue,
 })
 
 set("WinSeparator", {
@@ -103,7 +109,7 @@ set("WinSeparator", {
 })
 
 set("StatusLine", {
-    fg = palette.fg,
+    fg = palette.fg_soft,
     bg = palette.bg_dark,
 })
 
@@ -123,21 +129,18 @@ set("Comment", {
 
 set("Keyword", {
     fg = palette.purple,
-    italic = true,
 })
 
 set("Conditional", {
     fg = palette.purple,
-    italic = true,
 })
 
 set("Repeat", {
     fg = palette.purple,
-    italic = true,
 })
 
 set("Function", {
-    fg = palette.orange,
+    fg = palette.blue,
 })
 
 set("String", {
@@ -165,7 +168,7 @@ set("Identifier", {
 })
 
 set("Constant", {
-    fg = palette.yellow,
+    fg = palette.fg_soft,
 })
 
 set("Operator", {
@@ -173,11 +176,15 @@ set("Operator", {
 })
 
 set("PreProc", {
-    fg = palette.red,
+    fg = palette.purple,
 })
 
 set("Special", {
-    fg = palette.blue,
+    fg = palette.cyan,
+})
+
+set("Delimiter", {
+    fg = palette.fg_dim,
 })
 
 ------------------------------------------------------------
@@ -194,7 +201,19 @@ set("@keyword", {
 
 set("@keyword.function", {
     fg = palette.purple,
+})
+
+set("@keyword.return", {
+    fg = palette.purple,
     italic = true,
+})
+
+set("@conditional", {
+    link = "Conditional",
+})
+
+set("@repeat", {
+    link = "Repeat",
 })
 
 set("@function", {
@@ -202,7 +221,11 @@ set("@function", {
 })
 
 set("@function.call", {
-    fg = palette.orange,
+    fg = palette.blue,
+})
+
+set("@function.builtin", {
+    fg = palette.cyan,
 })
 
 set("@constructor", {
@@ -211,6 +234,10 @@ set("@constructor", {
 
 set("@string", {
     link = "String",
+})
+
+set("@character", {
+    link = "Character",
 })
 
 set("@number", {
@@ -235,7 +262,7 @@ set("@variable", {
 })
 
 set("@variable.builtin", {
-    fg = palette.red,
+    fg = palette.fg_soft,
     italic = true,
 })
 
@@ -243,16 +270,44 @@ set("@constant", {
     link = "Constant",
 })
 
+set("@constant.builtin", {
+    fg = palette.yellow,
+})
+
 set("@property", {
-    fg = palette.blue,
+    fg = palette.fg_soft,
+})
+
+set("@field", {
+    fg = palette.fg_soft,
+})
+
+set("@operator", {
+    link = "Operator",
+})
+
+set("@punctuation.delimiter", {
+    fg = palette.fg_dim,
+})
+
+set("@punctuation.bracket", {
+    fg = palette.fg_dim,
+})
+
+set("@punctuation.special", {
+    fg = palette.cyan,
 })
 
 set("@tag", {
-    fg = palette.red,
+    fg = palette.blue,
 })
 
 set("@tag.attribute", {
-    fg = palette.yellow,
+    fg = palette.cyan,
+})
+
+set("@tag.delimiter", {
+    fg = palette.fg_dim,
 })
 
 ------------------------------------------------------------
@@ -305,17 +360,22 @@ set("DiagnosticUnderlineHint", {
 
 set("DiffAdd", {
     fg = palette.green,
-    bg = "#20271d",
+    bg = "#192520",
 })
 
 set("DiffChange", {
-    fg = palette.yellow,
-    bg = "#29251c",
+    fg = palette.blue,
+    bg = "#1b252f",
 })
 
 set("DiffDelete", {
     fg = palette.red,
-    bg = "#2a1d1b",
+    bg = "#281c21",
+})
+
+set("DiffText", {
+    fg = palette.fg,
+    bg = "#263647",
 })
 
 ------------------------------------------------------------
@@ -334,10 +394,34 @@ set("TelescopeBorder", {
 
 set("TelescopeSelection", {
     bg = palette.bg_visual,
-    bold = true,
 })
 
 set("TelescopeMatching", {
-    fg = palette.orange,
+    fg = palette.cyan,
     bold = true,
+})
+
+set("TelescopePromptPrefix", {
+    fg = palette.blue,
+})
+
+set("TelescopeSelectionCaret", {
+    fg = palette.blue,
+})
+
+------------------------------------------------------------
+-- LSP references
+------------------------------------------------------------
+
+set("LspReferenceText", {
+    bg = palette.bg_visual,
+})
+
+set("LspReferenceRead", {
+    bg = palette.bg_visual,
+})
+
+set("LspReferenceWrite", {
+    bg = palette.bg_visual,
+    underline = true,
 })

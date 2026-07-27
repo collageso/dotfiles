@@ -24,6 +24,34 @@ local servers = {
             "--clang-tidy",
             "--header-insertion=never",
         },
+
+        root_markers = {
+            {
+                "Makefile",
+                "CMakeLists.txt",
+            },
+
+            ".git",
+        },
+
+        before_init = function(params, config)
+            local root_dir = config.root_dir
+
+            if not root_dir then
+                return
+            end
+
+            params.initializationOptions =
+                vim.tbl_deep_extend(
+                    "force",
+                    params.initializationOptions or {},
+                    {
+                        fallbackFlags = {
+                            "-I" .. root_dir .. "/include",
+                        },
+                    }
+                )
+        end,
     },
 
     rust_analyzer = {
