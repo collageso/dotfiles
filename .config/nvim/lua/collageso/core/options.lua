@@ -75,11 +75,5 @@ opt.clipboard = "unnamedplus"
 ------------------------------------------------------------
 
 opt.list = true
-
-opt.listchars = {
-    tab = "» ",
-    trail = "·",
-    nbsp = "␣",
-}
-
+vim.opt.list = false
 opt.showmode = false

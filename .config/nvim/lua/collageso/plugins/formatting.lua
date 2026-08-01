@@ -31,7 +31,7 @@ return {
         formatters = {
             clang_format = {
                 append_args = {
-                    "--style={BasedOnStyle: LLVM, AllowShortFunctionsOnASingleLine: Never}",
+                    "--style={BasedOnStyle: LLVM, AllowShortFunctionsOnASingleLine: None}",
                 },
             },
         },
