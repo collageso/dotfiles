@@ -64,16 +64,6 @@ local servers = {
                 check = {
                     command = "clippy",
                 },
-
-                completion = {
-                    callable = {
-                        snippets = "none",
-                    },
-
-                    postfix = {
-                        enable = false,
-                    },
-                },
             },
         },
     },
@@ -100,15 +90,15 @@ local servers = {
         settings = {
             typescript = {
                 preferences = {
-                    includeCompletionsForModuleExports = false,
-                    includeCompletionsForImportStatements = false,
+                    includeCompletionsForModuleExports = true,
+                    includeCompletionsForImportStatements = true,
                 },
             },
 
             javascript = {
                 preferences = {
-                    includeCompletionsForModuleExports = false,
-                    includeCompletionsForImportStatements = false,
+                    includeCompletionsForModuleExports = true,
+                    includeCompletionsForImportStatements = true,
                 },
             },
         },
@@ -158,7 +148,7 @@ local servers = {
         settings = {
             java = {
                 completion = {
-                    enabled = false,
+                    enabled = true,
                 },
 
                 saveActions = {
@@ -252,13 +242,6 @@ return {
                     if not client then
                         return
                     end
-
-                    --------------------------------------------
-                    -- Disable completion only
-                    --------------------------------------------
-
-                    vim.bo[bufnr].omnifunc = ""
-                    vim.bo[bufnr].completefunc = ""
 
                     --------------------------------------------
                     -- LSP mappings
@@ -441,13 +424,13 @@ return {
                 settings = {
                     ["csharp|completion"] = {
                         dotnet_provide_regex_completions =
-                            false,
+                            true,
 
                         dotnet_show_completion_items_from_unimported_namespaces =
-                            false,
+                            true,
 
                         dotnet_show_name_completion_suggestions =
-                            false,
+                            true,
                     },
 
                     ["csharp|background_analysis"] = {
