@@ -4,6 +4,7 @@
 
 font-family = IosevkaTerm NFM
 font-size = 12.5
+
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
@@ -28,50 +29,58 @@ background-opacity = 1
 cursor-style = block
 cursor-style-blink = false
 
-cursor-color = #d08b5b
-cursor-text = #181513
+# Actual typing cursor.
+cursor-color = #80a8ad
+cursor-text = #080809
 
+# Prevent shell integration from changing the cursor.
 shell-integration-features = no-cursor
 
 # ==================================================
 # Colors
 # ==================================================
 
-foreground = #d4c5b4
-background = #181513
+foreground = #bac5cf
+background = #0b0b0c
 
-selection-foreground = #d4c5b4
-selection-background = #372b23
+selection-foreground = #bac5cf
+selection-background = #1b1d20
 
+# ==================================================
 # ANSI colors
-palette = 0=#12100f
-palette = 1=#c46c62
-palette = 2=#84966b
-palette = 3=#c8a96b
-palette = 4=#728ca3
-palette = 5=#9a7e9c
-palette = 6=#779b91
-palette = 7=#d4c5b4
+# ==================================================
 
-palette = 8=#8f8176
-palette = 9=#d77a70
-palette = 10=#96aa79
-palette = 11=#ddbd7a
-palette = 12=#839eb8
-palette = 13=#ad8fb0
-palette = 14=#89afa4
-palette = 15=#eadbca
+# Normal
+palette = 0=#080809
+palette = 1=#a9737c
+palette = 2=#819b91
+palette = 3=#a99f7d
+palette = 4=#7898b0
+palette = 5=#918daa
+palette = 6=#80a8ad
+palette = 7=#bac5cf
 
-palette = 16=#d08b5b
-palette = 17=#493d36
-palette = 18=#201c19
-palette = 19=#372b23
-palette = 20=#8f8176
-palette = 21=#5b4a47
-palette = 22=#211d1a
-palette = 23=#20271d
-palette = 24=#29251c
-palette = 25=#2a1d1b
+# Bright
+palette = 8=#404c57
+palette = 9=#b98189
+palette = 10=#93ada2
+palette = 11=#bbb087
+palette = 12=#8baabd
+palette = 13=#a29dbb
+palette = 14=#93b9bd
+palette = 15=#d4dde4
+
+# Extended theme colors
+palette = 16=#a88f7c
+palette = 17=#292c30
+palette = 18=#0f1012
+palette = 19=#1b1d20
+palette = 20=#697783
+palette = 21=#9ca9b4
+palette = 22=#111214
+palette = 23=#151b17
+palette = 24=#15191e
+palette = 25=#1c1417
 
 # ==================================================
 # Mouse
