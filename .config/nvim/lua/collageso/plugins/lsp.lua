@@ -344,6 +344,22 @@ return {
                         "Rename symbol"
                     )
 
+                    map(
+                        "n",
+                        "<leader>lr",
+                        function()
+                            local clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+                            for _, client in ipairs(clients) do
+                                client:stop(true)
+                                vim.defer_fn(function()
+                                    vim.lsp.enable(client.name)
+                                end, 100)
+                            end
+                        end,
+                        "Restart LSP"
+                    )
+
                     if client:supports_method(
                             "textDocument/inlayHint"
                         ) then
