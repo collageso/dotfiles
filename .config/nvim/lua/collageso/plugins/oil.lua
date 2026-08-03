@@ -29,11 +29,9 @@ return {
         {
             "<leader>ef",
             function()
-                require("oil").open(
-                    vim.fn.expand("%:p:h")
-                )
+                require("oil").open(vim.fn.getcwd())
             end,
-            desc = "Open current file directory",
+            desc = "Open project root",
         },
     },
 
@@ -63,18 +61,21 @@ return {
             },
 
             ["<CR>"] = "actions.select",
+
             ["<C-v>"] = {
                 "actions.select",
                 opts = {
                     vertical = true,
                 },
             },
+
             ["<C-x>"] = {
                 "actions.select",
                 opts = {
                     horizontal = true,
                 },
             },
+
             ["<C-t>"] = {
                 "actions.select",
                 opts = {
@@ -90,6 +91,7 @@ return {
             ["_"] = "actions.open_cwd",
 
             ["`"] = "actions.cd",
+
             ["~"] = {
                 "actions.cd",
                 opts = {
