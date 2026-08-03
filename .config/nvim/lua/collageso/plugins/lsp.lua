@@ -176,6 +176,7 @@ return {
                 ft = "lua",
                 opts = {},
             },
+            "hrsh7th/cmp-nvim-lsp",
         },
 
         config = function()
@@ -209,10 +210,25 @@ return {
             })
 
             ----------------------------------------------------
+            -- Completion capabilities
+            ----------------------------------------------------
+
+            local capabilities =
+                require("cmp_nvim_lsp")
+                .default_capabilities()
+
+            ----------------------------------------------------
             -- Configure servers
             ----------------------------------------------------
 
             for name, config in pairs(servers) do
+                config.capabilities =
+                    vim.tbl_deep_extend(
+                        "force",
+                        config.capabilities or {},
+                        capabilities
+                    )
+
                 vim.lsp.config(name, config)
             end
 
@@ -225,167 +241,187 @@ return {
             local group =
                 vim.api.nvim_create_augroup(
                     "CollagesoLsp",
-                    { clear = true }
+                    {
+                        clear = true,
+                    }
                 )
 
-            vim.api.nvim_create_autocmd("LspAttach", {
-                group = group,
+            vim.api.nvim_create_autocmd(
+                "LspAttach",
+                {
+                    group = group,
 
-                callback = function(event)
-                    local bufnr = event.buf
+                    callback = function(event)
+                        local bufnr = event.buf
 
-                    local client =
-                        vim.lsp.get_client_by_id(
-                            event.data.client_id
-                        )
+                        local client =
+                            vim.lsp.get_client_by_id(
+                                event.data.client_id
+                            )
 
-                    if not client then
-                        return
-                    end
+                        if not client then
+                            return
+                        end
 
-                    --------------------------------------------
-                    -- LSP mappings
-                    --------------------------------------------
+                        ----------------------------------------
+                        -- LSP mappings
+                        ----------------------------------------
 
-                    local function map(
-                        mode,
-                        lhs,
-                        rhs,
-                        description
-                    )
-                        vim.keymap.set(
+                        local function map(
                             mode,
                             lhs,
                             rhs,
-                            {
-                                buffer = bufnr,
-                                silent = true,
-                                desc = description,
-                            }
+                            description
                         )
-                    end
+                            vim.keymap.set(
+                                mode,
+                                lhs,
+                                rhs,
+                                {
+                                    buffer = bufnr,
+                                    silent = true,
+                                    desc = description,
+                                }
+                            )
+                        end
 
-                    map(
-                        "n",
-                        "gD",
-                        vim.lsp.buf.declaration,
-                        "Go to declaration"
-                    )
-
-                    map(
-                        "n",
-                        "gd",
-                        function()
-                            require(
-                                "telescope.builtin"
-                            ).lsp_definitions()
-                        end,
-                        "Go to definition"
-                    )
-
-                    map(
-                        "n",
-                        "gR",
-                        function()
-                            require(
-                                "telescope.builtin"
-                            ).lsp_references()
-                        end,
-                        "Show references"
-                    )
-
-                    map(
-                        "n",
-                        "gi",
-                        function()
-                            require(
-                                "telescope.builtin"
-                            ).lsp_implementations()
-                        end,
-                        "Go to implementation"
-                    )
-
-                    map(
-                        "n",
-                        "gt",
-                        function()
-                            require(
-                                "telescope.builtin"
-                            ).lsp_type_definitions()
-                        end,
-                        "Go to type definition"
-                    )
-
-                    map(
-                        "n",
-                        "K",
-                        vim.lsp.buf.hover,
-                        "Hover documentation"
-                    )
-
-                    map(
-                        "n",
-                        "<leader>ls",
-                        vim.lsp.buf.signature_help,
-                        "Signature help"
-                    )
-
-                    map(
-                        { "n", "v" },
-                        "<leader>ca",
-                        vim.lsp.buf.code_action,
-                        "Code action"
-                    )
-
-                    map(
-                        "n",
-                        "<leader>rn",
-                        vim.lsp.buf.rename,
-                        "Rename symbol"
-                    )
-
-                    map(
-                        "n",
-                        "<leader>lr",
-                        function()
-                            local clients = vim.lsp.get_clients({ bufnr = bufnr })
-
-                            for _, client in ipairs(clients) do
-                                client:stop(true)
-                                vim.defer_fn(function()
-                                    vim.lsp.enable(client.name)
-                                end, 100)
-                            end
-                        end,
-                        "Restart LSP"
-                    )
-
-                    if client:supports_method(
-                            "textDocument/inlayHint"
-                        ) then
                         map(
                             "n",
-                            "<leader>ih",
+                            "gD",
+                            vim.lsp.buf.declaration,
+                            "Go to declaration"
+                        )
+
+                        map(
+                            "n",
+                            "gd",
                             function()
-                                local enabled =
-                                    vim.lsp.inlay_hint
-                                    .is_enabled({
+                                require(
+                                    "telescope.builtin"
+                                ).lsp_definitions()
+                            end,
+                            "Go to definition"
+                        )
+
+                        map(
+                            "n",
+                            "gR",
+                            function()
+                                require(
+                                    "telescope.builtin"
+                                ).lsp_references()
+                            end,
+                            "Show references"
+                        )
+
+                        map(
+                            "n",
+                            "gi",
+                            function()
+                                require(
+                                    "telescope.builtin"
+                                ).lsp_implementations()
+                            end,
+                            "Go to implementation"
+                        )
+
+                        map(
+                            "n",
+                            "gt",
+                            function()
+                                require(
+                                    "telescope.builtin"
+                                ).lsp_type_definitions()
+                            end,
+                            "Go to type definition"
+                        )
+
+                        map(
+                            "n",
+                            "K",
+                            vim.lsp.buf.hover,
+                            "Hover documentation"
+                        )
+
+                        map(
+                            "n",
+                            "<leader>ls",
+                            vim.lsp.buf.signature_help,
+                            "Signature help"
+                        )
+
+                        map(
+                            {
+                                "n",
+                                "v",
+                            },
+                            "<leader>ca",
+                            vim.lsp.buf.code_action,
+                            "Code action"
+                        )
+
+                        map(
+                            "n",
+                            "<leader>rn",
+                            vim.lsp.buf.rename,
+                            "Rename symbol"
+                        )
+
+                        map(
+                            "n",
+                            "<leader>lr",
+                            function()
+                                local clients =
+                                    vim.lsp.get_clients({
                                         bufnr = bufnr,
                                     })
 
-                                vim.lsp.inlay_hint
-                                    .enable(
-                                        not enabled,
-                                        {
-                                            bufnr = bufnr,
-                                        }
+                                for _, attached_client
+                                in ipairs(clients)
+                                do
+                                    attached_client:stop(true)
+
+                                    vim.defer_fn(
+                                        function()
+                                            vim.lsp.enable(
+                                                attached_client.name
+                                            )
+                                        end,
+                                        100
                                     )
+                                end
                             end,
-                            "Toggle inlay hints"
+                            "Restart LSP"
                         )
-                    end
-                end,
-            })
+
+                        if client:supports_method(
+                                "textDocument/inlayHint"
+                            )
+                        then
+                            map(
+                                "n",
+                                "<leader>ih",
+                                function()
+                                    local enabled =
+                                        vim.lsp.inlay_hint
+                                        .is_enabled({
+                                            bufnr = bufnr,
+                                        })
+
+                                    vim.lsp.inlay_hint
+                                        .enable(
+                                            not enabled,
+                                            {
+                                                bufnr = bufnr,
+                                            }
+                                        )
+                                end,
+                                "Toggle inlay hints"
+                            )
+                        end
+                    end,
+                }
+            )
         end,
     },
 
@@ -436,7 +472,13 @@ return {
         config = function(_, opts)
             require("roslyn").setup(opts)
 
+            local capabilities =
+                require("cmp_nvim_lsp")
+                .default_capabilities()
+
             vim.lsp.config("roslyn", {
+                capabilities = capabilities,
+
                 settings = {
                     ["csharp|completion"] = {
                         dotnet_provide_regex_completions =
